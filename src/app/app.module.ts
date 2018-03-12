@@ -6,6 +6,9 @@ import { StatusBar } from '@ionic-native/status-bar';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
+//Pipes
+import {ImagenPipe} from "../pipes/imagen/imagen";
+
 
 //HTTP MODULO
 import { HttpClientModule} from '@angular/common/http';
@@ -15,12 +18,30 @@ import { CarritoProvider } from '../providers/carrito/carrito';
 import { ProductoProvider } from '../providers/producto/producto';
 import { UsuarioProvider } from '../providers/usuario/usuario';
 
+//Paginas
+import {CarritoPage,
+CategoriasPage,
+LoginPage,
+OrdenesPage,
+OrdenesDetallePage,
+PorCategoriasPage,
+ProductoPage,
+TabsPage }from '../pages/index.paginas';
 
 
 @NgModule({
   declarations: [
     MyApp,
-    HomePage
+    ImagenPipe,
+    HomePage,
+    CarritoPage,
+    CategoriasPage,
+    LoginPage,
+    OrdenesPage,
+    OrdenesDetallePage,
+    PorCategoriasPage,
+    ProductoPage,
+    TabsPage
   ],
   imports: [
     BrowserModule,
@@ -32,7 +53,15 @@ import { UsuarioProvider } from '../providers/usuario/usuario';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage
+    HomePage,
+    CarritoPage,
+    CategoriasPage,
+    LoginPage,
+    OrdenesPage,
+    OrdenesDetallePage,
+    PorCategoriasPage,
+    ProductoPage,
+    TabsPage
   ],
   providers: [
     StatusBar,
