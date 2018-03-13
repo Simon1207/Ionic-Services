@@ -10,11 +10,28 @@ export class ProductoProvider {
 pagina:number=0;
 //Arreglo que almacenara los productos obtenidos por get de la url_serivicos
 productos:any[]=[];
+lineas:any[]=[];
 
   constructor(public http: HttpClient) {
     console.log('Hello ProductoProvider Provider');
     //llamo la funcion cargar todos
     this.cargar_todos();
+    //llamo la funcion cargar lineas
+    this.cargar_lineas();
+  }
+
+  cargar_lineas(){
+    let url=URL_SERVICIOS+"/lineas";
+    this.http.get(url).subscribe(data=>{
+        if(data['error']){
+          console.log("ERROR EN :"+URL_SERVICIOS+"/lineas");
+        }else{
+        console.log(data);
+        this.lineas.push(...data['lineas']);
+    }
+    });
+             
+             
   }
 
   cargar_todos(){

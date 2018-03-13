@@ -8,6 +8,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 export class PorCategoriasPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+    console.log(this.navParams.get("categoria"));
   }
 
   ionViewDidLoad() {
