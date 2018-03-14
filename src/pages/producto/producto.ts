@@ -1,3 +1,4 @@
+import { CarritoProvider } from './../../providers/carrito/carrito';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
@@ -9,7 +10,8 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 export class ProductoPage {
   producto:any={};
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,
+  private _cs:CarritoProvider) {
     console.log(this.navParams.get("producto"));
     this.producto=this.navParams.get("producto");
   }

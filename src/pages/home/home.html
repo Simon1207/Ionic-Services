@@ -3,6 +3,16 @@
     <ion-title>
       Tienda-Web
     </ion-title>
+
+    <ion-buttons end>
+      <button ion-button icon-only>
+        <ion-icon name="cart"></ion-icon>
+        <ion-badge color="danger"
+          *ngIf="_cs.items.length>0" >
+          {{_cs.items.length}}</ion-badge>
+      </button>
+    </ion-buttons>
+
   </ion-navbar>
 </ion-header>
 

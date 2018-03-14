@@ -1,3 +1,4 @@
+import { URL_SERVICIOS } from './../../config/url.servicios';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import 'rxjs/add/operator/map';
@@ -11,6 +12,7 @@ pagina:number=0;
 //Arreglo que almacenara los productos obtenidos por get de la url_serivicos
 productos:any[]=[];
 lineas:any[]=[];
+por_categoria:any[]=[];
 
   constructor(public http: HttpClient) {
     console.log('Hello ProductoProvider Provider');
@@ -30,8 +32,17 @@ lineas:any[]=[];
         this.lineas.push(...data['lineas']);
     }
     });
-             
-             
+
+
+  }
+
+  cargar_por_categoria(categoria:number){
+    let url=URL_SERVICIOS+"/productos/por_tipo/"+categoria;
+    this.http.get(url)
+              .subscribe(data=>{
+                console.log(data.productos);
+                this.por_categoria=data.productos;
+              });
   }
 
   cargar_todos(){
